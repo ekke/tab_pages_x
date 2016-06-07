@@ -92,20 +92,27 @@ ApplicationWindow {
     // primaryDarkColor is used because FAB can overlap Raised Buttons colored in primaryColor
     FloatingActionButton {
         id: fab
-        property string imageName: "/done.png"
+        property string imageName: "/settings.png"
         z: 1
         anchors.margins: 16
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        imageSource: "qrc:/images/"+iconOnPrimaryDarkFolder+imageName
+        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
         onClicked: {
-            // Open Settings Popup
+            showInfo("TODO: Settings TabBar:\nfix vs scrolling\ntop vs bottom\ntext, icon, text+icon")
         }
     } // FAB
 
     TabBar {
         id: bar
+
+        // tabbar at bottom TODO
+        // position: TabBar.Footer
+        // anchors.bottom: parent.bottom
+        // SwipeView reposition
+        // FAB reposition
+
         anchors.left: parent.left
         anchors.right: parent.right
         currentIndex: 0
@@ -343,6 +350,11 @@ ApplicationWindow {
     function pageNotValid(pageNumber) {
         popupInfo.text = qsTr("Page %1 not valid.\nPlease tap 'Done' Button","").arg(pageNumber)
         popupInfo.buttonText = qsTr("So Long, and Thx For All The Fish")
+        popupInfo.open()
+    }
+    function showInfo(info) {
+        popupInfo.text = info
+        popupInfo.buttonText = qsTr("OK")
         popupInfo.open()
     }
 
