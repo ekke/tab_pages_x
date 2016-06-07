@@ -11,7 +11,7 @@ import "pages"
 // This app is NOT a production ready app
 // This app's goal is only to help you to understand some concepts
 // see blog http://j.mp/qt-x to learn about Qt 5.7 for Material - styled Android or iOS Apps
-// learn about this swiped_pages_x app from this article: http://bit.ly/qt-swiped-pages-x
+// learn about this tab_pages_x app from this article: http://bit.ly/qt-tab-pages-x
 // ekke (Ekkehard gentz) @ekkescorner
 
 ApplicationWindow {
@@ -89,7 +89,6 @@ ApplicationWindow {
         text: qsTr("HowTo move from A to B")
     }
 
-    // primaryDarkColor is used because FAB can overlap Raised Buttons colored in primaryColor
     FloatingActionButton {
         id: fab
         property string imageName: "/settings.png"
@@ -274,17 +273,13 @@ ApplicationWindow {
         Loader {
             // index 0
             id: pageOneLoader
-            property string title: active? item.title:"..."
             active: true
             source: "pages/PageOne.qml"
             onLoaded: item.init()
-            // would like to call item.cleanup() from here, but there's no 'onUnloading'
-            // so cleanup() is called from Component.onDestruction inside item
         }
         Loader {
             // index 1
             id: pageTwoLoader
-            property string title: active? item.title:"..."
             active: true
             source: "pages/PageTwo.qml"
             onLoaded: item.init()
@@ -292,7 +287,6 @@ ApplicationWindow {
         Loader {
             // index 2
             id: pageThreeLoader
-            property string title: active? item.title:"..."
             active: false
             source: "pages/PageThree.qml"
             onLoaded: item.init()
@@ -300,7 +294,6 @@ ApplicationWindow {
         Loader {
             // index 3
             id: pageFourLoader
-            property string title: active? item.title:"..."
             active: false
             source: "pages/PageFour.qml"
             onLoaded: item.init()
@@ -308,7 +301,6 @@ ApplicationWindow {
         Loader {
             // index 4
             id: pageFiveLoader
-            property string title: active? item.title:"..."
             active: false
             source: "pages/PageFive.qml"
             onLoaded: item.init()
@@ -368,6 +360,8 @@ ApplicationWindow {
             resetFocus()
         }
     } // popupInfo
+
+    // TODO PopupSettings
 
 
 } // app window
