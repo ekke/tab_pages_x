@@ -11,7 +11,7 @@ Popup {
 
     x: parent.width - width
     width: Math.min(appWindow.width, appWindow.height) / 3 * 2
-    height: appWindow.height - header.height
+    height: header? appWindow.height - header.height : appWindow.height
     transformOrigin: Popup.TopRight
     // Attention: clip should be used carefully,
     // but using a ListView inside a Popup
