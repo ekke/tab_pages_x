@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.0
 import QtGraphicalEffects 1.0
 import "common"
 import "pages"
+import "tabs"
 
 // This app demonstrates HowTo use Qt 5.7 new Qt Quick Controls 2, High DPI and more
 // This app is NOT a production ready app
@@ -18,6 +19,9 @@ ApplicationWindow {
     id: appWindow
     // visibile must set to true - default is false
     visible: true
+    //
+    property bool isLandscape: width > height
+
     // primary and accent properties:
     property variant primaryPalette: myApp.defaultPrimaryPalette()
     property color primaryLightColor: primaryPalette[0]
@@ -82,11 +86,40 @@ ApplicationWindow {
     property real opacityBodySecondary: secondaryTextOpacity
     property real opacityCaption: secondaryTextOpacity
     //
+    // TabBar properties
+    property bool tabBarIsFixed: true
+    property var tabButtonTextModel: ["Car", "Bus", "Subway", "Truck", "Flight"]
 
-    header: SwipeTextTitle {
+    // header only used in PORTRAIT to provide a fixed TitleBar
+    header: isLandscape? null : titleBar
+
+    Loader {
         id: titleBar
-        backToolButtonVisible: false
-        text: qsTr("HowTo move from A to B")
+        visible: !isLandscape
+        active: !isLandscape
+        source: "tabs/TitleAndTabBar.qml"
+        onLoaded: {
+            if(item) {
+                item.currentIndex = navPane.currentIndex
+                item.text = qsTr("HowTo move from A to B")
+            }
+        }
+    }
+    // in LANDSCAPE header is null and we have a floating TitleBar
+    Loader {
+        id: titleBarFloating
+        visible: isLandscape
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        active: isLandscape
+        source: "tabs/TitleAndTabBar.qml"
+        onLoaded: {
+            if(item) {
+                item.currentIndex = navPane.currentIndex
+                item.text = qsTr("HowTo move from A to B")
+            }
+        }
     }
 
     FloatingActionButton {
@@ -100,62 +133,43 @@ ApplicationWindow {
         backgroundColor: accentColor
         onClicked: {
             showInfo("TODO: Settings TabBar:\nfix vs scrolling\ntop vs bottom\ntext, icon, text+icon")
+            tabBarIsFixed = !tabBarIsFixed
         }
     } // FAB
-
-    TabBar {
-        id: bar
-
-        // tabbar at bottom TODO
-        // position: TabBar.Footer
-        // anchors.bottom: parent.bottom
-        // SwipeView reposition
-        // FAB reposition
-
-        anchors.left: parent.left
-        anchors.right: parent.right
-        currentIndex: 0
-        onCurrentIndexChanged: {
-            navPane.currentIndex = currentIndex
-        }
-        Repeater {
-            model: ["Car", "Bus", "Subway", "Truck", "Flight"]
-            TabButton {
-                text: modelData
-                width: undefined // Math.max(112, bar.width / 5)
-            }
-        } // repeater
-    }
 
     SwipeView {
         id: navPane
         focus: true
         // anchors.fill: parent
-        anchors.top: bar.bottom
+        anchors.top: isLandscape? titleBarFloating.bottom : parent.top
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        currentIndex: bar.currentIndex
+        currentIndex: 0
         // currentIndex is the NEXT index swiped to
         onCurrentIndexChanged: {
-            bar.currentIndex = currentIndex
+            if(isLandscape) {
+                titleBarFloating.item.currentIndex = currentIndex
+            } else {
+                titleBar.item.currentIndex = currentIndex
+            }
             switch(currentIndex) {
-                case 1:
-                    pageThreeLoader.active = true
-                    break;
-                case 2:
-                    pageThreeLoader.active = true
-                    pageFourLoader.active = true
-                    break;
-                case 3:
-                    pageThreeLoader.active = true
-                    pageFourLoader.active = true
-                    pageFiveLoader.active = true
-                    break;
-                case 4:
-                    pageFourLoader.active = true
-                    pageFiveLoader.active = true
-                    break;
+            case 1:
+                pageThreeLoader.active = true
+                break;
+            case 2:
+                pageThreeLoader.active = true
+                pageFourLoader.active = true
+                break;
+            case 3:
+                pageThreeLoader.active = true
+                pageFourLoader.active = true
+                pageFiveLoader.active = true
+                break;
+            case 4:
+                pageFourLoader.active = true
+                pageFiveLoader.active = true
+                break;
             }
         }
 

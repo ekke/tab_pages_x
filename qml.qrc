@@ -31,5 +31,6 @@
         <file>common/StackTextTitle.qml</file>
         <file>common/SwipeTextTitle.qml</file>
         <file>common/PopupInfo.qml</file>
+        <file>tabs/TitleAndTabBar.qml</file>
     </qresource>
 </RCC>

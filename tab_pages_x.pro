@@ -15,7 +15,8 @@ SOURCES += main.cpp \
 lupdate_only {
     SOURCES +=  main.qml \
     common/*.qml \
-    pages/*.qml
+    pages/*.qml \
+    tabs/*.qml
 }
 
 OTHER_FILES += images/black/*.png \
