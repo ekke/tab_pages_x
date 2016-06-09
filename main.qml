@@ -86,10 +86,14 @@ ApplicationWindow {
     property real opacityBodySecondary: secondaryTextOpacity
     property real opacityCaption: secondaryTextOpacity
     //
+
     // TabBar properties
     property bool tabBarIsFixed: true
-    property var tabButtonTextModel: ["Car", "Bus", "Subway", "Truck", "Flight"]
-
+    property var tabButtonModel: [{"name": "Car", "icon": "car.png"},
+                                            {"name": "Bus", "icon": "bus.png"},
+                                            {"name": "Subway", "icon": "subway.png"},
+                                            {"name": "Truck", "icon": "truck.png"},
+                                            {"name": "Flight", "icon": "flight.png"}]
     // header only used in PORTRAIT to provide a fixed TitleBar
     header: isLandscape? null : titleBar
 
@@ -97,7 +101,7 @@ ApplicationWindow {
         id: titleBar
         visible: !isLandscape
         active: !isLandscape
-        source: "tabs/TitleAndTabBar.qml"
+        source: "tabs/TitleAndIconTextTabBar.qml" // "tabs/TitleAndTabBar.qml" // "tabs/TitleAndIconTabBar.qml"
         onLoaded: {
             if(item) {
                 item.currentIndex = navPane.currentIndex
@@ -113,7 +117,7 @@ ApplicationWindow {
         anchors.left: parent.left
         anchors.right: parent.right
         active: isLandscape
-        source: "tabs/TitleAndTabBar.qml"
+        source: "tabs/TitleAndIconTextTabBar.qml" // "tabs/TitleAndTabBar.qml" // "tabs/TitleAndIconTabBar.qml"
         onLoaded: {
             if(item) {
                 item.currentIndex = navPane.currentIndex

@@ -26,8 +26,8 @@ ColumnLayout {
 
         Repeater {
             model: tabButtonModel
-            TabButton {
-                text: modelData.name
+            TabButtonIcon {
+                // text: modelData.name
                 width: tabBarIsFixed? myTabBar.width / tabButtonModel.length  : Math.max(112, myTabBar.width / tabButtonModel.length)
             }
         } // repeater

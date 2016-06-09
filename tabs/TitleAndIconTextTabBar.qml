@@ -19,6 +19,7 @@ ColumnLayout {
         anchors.top: myTitleBar.bottom
         anchors.left: parent.left
         anchors.right: parent.right
+        bottomPadding: isLandscape? 18: 12
         currentIndex: 0
         onCurrentIndexChanged: {
             navPane.currentIndex = currentIndex
@@ -26,8 +27,8 @@ ColumnLayout {
 
         Repeater {
             model: tabButtonModel
-            TabButton {
-                text: modelData.name
+            TabButtonTextAndIcon {
+                // text: modelData.name
                 width: tabBarIsFixed? myTabBar.width / tabButtonModel.length  : Math.max(112, myTabBar.width / tabButtonModel.length)
             }
         } // repeater

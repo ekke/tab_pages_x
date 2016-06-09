@@ -32,5 +32,9 @@
         <file>common/SwipeTextTitle.qml</file>
         <file>common/PopupInfo.qml</file>
         <file>tabs/TitleAndTabBar.qml</file>
+        <file>tabs/TabButtonIcon.qml</file>
+        <file>tabs/TabButtonTextAndIcon.qml</file>
+        <file>tabs/TitleAndIconTabBar.qml</file>
+        <file>tabs/TitleAndIconTextTabBar.qml</file>
     </qresource>
 </RCC>
