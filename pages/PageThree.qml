@@ -38,23 +38,19 @@ Flickable {
             RowLayout {
                 // implicite fillWidth = true
                 spacing: 10
-                ButtonFlat {
-                    text: "Bus"
+                ButtonIconActive {
+                    imageName: tabButtonModel[1].icon
+                    imageSize: 48
                     onClicked: {
                         navPane.goToPage(1)
                     }
                 }
-                ButtonFlat {
-                    id: button4
-                    text: "Truck"
+                ButtonIconActive {
+                    imageName: tabButtonModel[3].icon
+                    imageSize: 48
                     onClicked: {
                         navPane.goToPage(3)
                     }
-                }
-                Item {
-                    // dummi placeholder for up to 2 more buttons
-                    Layout.preferredWidth : 1
-                    Layout.fillWidth: true
                 }
             } // button row
         } // col layout

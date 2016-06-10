@@ -40,5 +40,6 @@
         <file>tabs/TitleWithTabBar.qml</file>
         <file>tabs/TitleWithIconTabBar.qml</file>
         <file>tabs/TitleWithIconTextTabBar.qml</file>
+        <file>common/ButtonIconActive.qml</file>
     </qresource>
 </RCC>

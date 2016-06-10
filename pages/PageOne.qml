@@ -39,23 +39,13 @@ Flickable {
             HorizontalDivider {}
             RowLayout {
                 // implicite fillWidth = true
-                spacing: 10
-                Item {
-                    // dummi placeholder
-                    Layout.preferredWidth : 1
-                    Layout.fillWidth: true
-                }
-                ButtonRaised {
-                    id: button2
-                    text: "Bus"
+                spacing: 20
+                ButtonIconActive {
+                    imageName: tabButtonModel[1].icon
+                    imageSize: 48
                     onClicked: {
                         navPane.goToPage(1)
                     }
-                }
-                Item {
-                    // dummi placeholder
-                    Layout.preferredWidth : 1
-                    Layout.fillWidth: true
                 }
             } // button row
         } // col layout

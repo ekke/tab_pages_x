@@ -38,22 +38,23 @@ Flickable {
             RowLayout {
                 // implicite fillWidth = true
                 spacing: 10
-                ButtonRaised {
-                    text: "Car"
+                ButtonIconActive {
+                    imageName: tabButtonModel[0].icon
+                    imageSize: 48
                     onClicked: {
                         navPane.goToPage(0)
                     }
                 }
-                ButtonRaised {
-                    id: button3
-                    text: "Subway"
+                ButtonIconActive {
+                    imageName: tabButtonModel[2].icon
+                    imageSize: 48
                     onClicked: {
                         navPane.goToPage(2)
                     }
                 }
-                ButtonRaised {
-                    id: button5
-                    text: "Flight"
+                ButtonIconActive {
+                    imageName: tabButtonModel[4].icon
+                    imageSize: 48
                     onClicked: {
                         navPane.goToPage(4)
                     }
