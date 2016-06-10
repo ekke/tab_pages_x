@@ -55,11 +55,12 @@ static const QStringList materialBlueGrey{"#CFD8DC", "#607D8B", "#455A64", "#000
  *
  * QStringList contains:
  * {dividerColor, cardAndDialogBackground, primaryTextOpacity, secondaryTextOpacity, dividerOpacity,
- *    iconActiveOpacity, iconInactiveOpacity, iconFolder, isDark, flatButtonTextColor, popupTextColor}
+ *    iconActiveOpacity, iconInactiveOpacity, iconFolder, isDark, flatButtonTextColor, popupTextColor,
+ *    toolBarActiveOpacity, toolBarInactiveOpacity}
  *
 */
-static const QStringList darkPalette{"#FFFFFF", "#424242", "1.0", "0.70", "0.12", "1.0", "0.3", "white", "1", "#FFFFFF", "#FFFFFF"};
-static const QStringList lightPalette{"#000000", "#FFFFFF", "0.87", "0.54", "0.12", "0.54", "0.26", "black", "0", "#424242", "#424242"};
+static const QStringList darkPalette{"#FFFFFF", "#424242", "1.0", "0.70", "0.12", "1.0", "0.3", "white", "1", "#FFFFFF", "#FFFFFF", "1.0", "0.7"};
+static const QStringList lightPalette{"#000000", "#FFFFFF", "0.87", "0.54", "0.12", "0.54", "0.26", "black", "0", "#424242", "#424242", "1.0", "0.7"};
 
 } // namespace constants
 } // namespace ekke

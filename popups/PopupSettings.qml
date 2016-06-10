@@ -10,7 +10,8 @@ Popup {
     id: popup
     property bool tabBarIsFixedSettings: tabBarIsFixed
     property int tabButtonDesignSettings: tabButtonDesign
-    // default behavior for this Popup: OK
+    property bool tabBarInsideTitleBarSettings: tabBarInsideTitleBar
+    // default behavior for this Popup: OK Button Clicked
     property bool isOk: true
     x: parent.width - width
     width: Math.min(appWindow.width, appWindow.height) / 4 * 3
@@ -41,6 +42,7 @@ Popup {
                     anchors.fill: parent
                     RadioButton {
                         id: radioText
+                        focusPolicy: Qt.NoFocus
                         text: qsTr("Text only")
                         checked: tabButtonDesignSettings == 0
                         onCheckedChanged: {
@@ -49,6 +51,7 @@ Popup {
                     }
                     RadioButton {
                         id: radioIcon
+                        focusPolicy: Qt.NoFocus
                         text: qsTr("Icon only")
                         checked: tabButtonDesignSettings == 1
                         onCheckedChanged: {
@@ -57,6 +60,7 @@ Popup {
                     }
                     RadioButton {
                         id: radioTextAndIcon
+                        focusPolicy: Qt.NoFocus
                         text: qsTr("Icon and Text")
                         checked: tabButtonDesignSettings == 2
                         onCheckedChanged: {
@@ -65,7 +69,19 @@ Popup {
                     }
                 }
             }
-        }
+        } // radiobuttons design
+        RowLayout {
+            Switch {
+                focusPolicy: Qt.NoFocus
+                topPadding: 8
+                leftPadding: 12
+                text: qsTr("Tabs inside TitleBar")
+                checked: tabBarInsideTitleBar
+                onCheckedChanged: {
+                    tabBarInsideTitleBarSettings = checked
+                }
+            } // switch scrollable
+        } // row label
 
         RowLayout {
             ButtonFlat {
@@ -95,6 +111,7 @@ Popup {
         if(isOk) {
             tabBarIsFixed = tabBarIsFixedSettings
             tabButtonDesign = tabButtonDesignSettings
+            tabBarInsideTitleBar = tabBarInsideTitleBarSettings
         }
     }
 

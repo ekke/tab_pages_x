@@ -6,6 +6,10 @@ import QtQuick.Controls.Material 2.0
 import QtGraphicalEffects 1.0
 
 TabButton {
+    property color theButtonColor: accentColor
+    property string theIconFolder: iconFolder
+    property alias hasOverlay: colorOverlay.visible
+    property real theOpacity: 1.0
     height: 48
     contentItem:
         Item {
@@ -14,13 +18,15 @@ TabButton {
             anchors.centerIn: parent
             horizontalAlignment: Image.AlignHCenter
             verticalAlignment: Image.AlignVCenter
-            source: "qrc:/images/"+iconFolder+"/"+modelData.icon
+            source: "qrc:/images/"+theIconFolder+"/"+modelData.icon
+            opacity: colorOverlay.visible? 1.0 : theOpacity
         }
         ColorOverlay {
             id: colorOverlay
+            visible: true
             anchors.fill: contentImage
             source: contentImage
-            color: accentColor
+            color: index == navPane.currentIndex ? theButtonColor : Qt.lighter(theButtonColor)
         }
     } // item
 }

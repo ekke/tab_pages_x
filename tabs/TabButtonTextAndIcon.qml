@@ -7,6 +7,10 @@ import QtGraphicalEffects 1.0
 import "../common"
 
 TabButton {
+    property color theButtonColor: accentColor
+    property string theIconFolder: iconFolder
+    property alias hasOverlay: colorOverlay.visible
+    property real theOpacity: 1.0
     height: 72
     contentItem:
         Item {
@@ -17,15 +21,19 @@ TabButton {
             anchors.horizontalCenter: parent.horizontalCenter
             y: 12
             horizontalAlignment: Image.AlignHCenter
-            source: "qrc:/images/"+iconFolder+"/"+modelData.icon
+            source: "qrc:/images/"+theIconFolder+"/"+modelData.icon
+            opacity: colorOverlay.visible? 1.0 : theOpacity
         }
         ColorOverlay {
             id: colorOverlay
+            visible: true
             anchors.fill: contentImage
             source: contentImage
-            color: index == navPane.currentIndex ? accentColor : Qt.lighter(accentColor)
+            color: index == navPane.currentIndex ? theButtonColor : Qt.lighter(theButtonColor)
+
         }
         LabelBody {
+            id: myLabel
             topPadding: 6
             anchors.top: contentImage.bottom
             anchors.left: parent.left
@@ -33,7 +41,8 @@ TabButton {
             horizontalAlignment: Text.AlignHCenter
             font.capitalization: Font.AllUppercase
             font.weight: Font.Medium
-            color: index == navPane.currentIndex ? accentColor : Qt.lighter(accentColor)
+            color: theButtonColor
+            opacity: theOpacity
             text: modelData.name
         }
     } // content item

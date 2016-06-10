@@ -29,6 +29,7 @@ ColumnLayout {
             model: tabButtonModel
             TabButtonTextAndIcon {
                 // text: modelData.name
+                theOpacity: index == navPane.currentIndex ? toolBarActiveOpacity : toolBarInactiveOpacity
                 width: tabBarIsFixed? myTabBar.width / tabButtonModel.length  : Math.max(112, myTabBar.width / tabButtonModel.length)
             }
         } // repeater

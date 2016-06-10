@@ -53,6 +53,8 @@ ApplicationWindow {
     property int isDarkTheme: themePalette[8]
     property color flatButtonTextColor: themePalette[9]
     property color popupTextColor: themePalette[10]
+    property real toolBarActiveOpacity: themePalette[11]
+    property real toolBarInactiveOpacity: themePalette[12]
     // Material.dropShadowColor  OK for Light, but too dark for dark theme
     property color dropShadow: isDarkTheme? "#E4E4E4" : Material.dropShadowColor
     onIsDarkThemeChanged: {
@@ -89,11 +91,70 @@ ApplicationWindow {
     //
 
     // TabBar properties
+    property string titleAndTabBarSource: "tabs/TitleWithTabBar.qml"
     property bool tabBarIsFixed: true
+    property bool tabBarInsideTitleBar: true
+    onTabBarInsideTitleBarChanged: {
+        if (tabBarInsideTitleBar) {
+            if(tabButtonTextOnly) {
+                titleAndTabBarSource = "tabs/TitleWithTabBar.qml"
+                return
+            }
+            if(tabButtonIconOnly) {
+                titleAndTabBarSource = "tabs/TitleWithIconTabBar.qml"
+                return
+            }
+            if(tabButtonTextAndIcon) {
+                titleAndTabBarSource = "tabs/TitleWithIconTextTabBar.qml"
+                return
+            }
+        } else {
+            if(tabButtonTextOnly) {
+                titleAndTabBarSource = "tabs/TitleAndTabBar.qml"
+                return
+            }
+            if(tabButtonIconOnly) {
+                titleAndTabBarSource = "tabs/TitleAndIconTabBar.qml"
+                return
+            }
+            if(tabButtonTextAndIcon) {
+                titleAndTabBarSource = "tabs/TitleAndIconTextTabBar.qml"
+                return
+            }
+        }
+    }
     property int tabButtonDesign: 0
     property bool tabButtonTextOnly: tabButtonDesign == 0
+    onTabButtonTextOnlyChanged: {
+        if(tabButtonTextOnly) {
+            if (tabBarInsideTitleBar) {
+                titleAndTabBarSource = "tabs/TitleWithTabBar.qml"
+            } else {
+                titleAndTabBarSource = "tabs/TitleAndTabBar.qml"
+            }
+        }
+    }
     property bool tabButtonIconOnly: tabButtonDesign == 1
+    onTabButtonIconOnlyChanged: {
+        if(tabButtonIconOnly) {
+            if (tabBarInsideTitleBar) {
+                titleAndTabBarSource = "tabs/TitleWithIconTabBar.qml"
+            } else {
+                titleAndTabBarSource = "tabs/TitleAndIconTabBar.qml"
+            }
+        }
+    }
     property bool tabButtonTextAndIcon: tabButtonDesign == 2
+    onTabButtonTextAndIconChanged: {
+        if(tabButtonTextAndIcon) {
+            if (tabBarInsideTitleBar) {
+                titleAndTabBarSource = "tabs/TitleWithIconTextTabBar.qml"
+            } else {
+                titleAndTabBarSource = "tabs/TitleAndIconTextTabBar.qml"
+            }
+        }
+    }
+
     property var tabButtonModel: [{"name": "Car", "icon": "car.png"},
                                             {"name": "Bus", "icon": "bus.png"},
                                             {"name": "Subway", "icon": "subway.png"},
@@ -106,7 +167,7 @@ ApplicationWindow {
         id: titleBar
         visible: !isLandscape
         active: !isLandscape
-        source: tabButtonTextOnly? "tabs/TitleAndTabBar.qml" : (tabButtonIconOnly? "tabs/TitleAndIconTabBar.qml" : "tabs/TitleAndIconTextTabBar.qml")
+        source: titleAndTabBarSource
         onLoaded: {
             if(item) {
                 item.currentIndex = navPane.currentIndex
@@ -122,7 +183,7 @@ ApplicationWindow {
         anchors.left: parent.left
         anchors.right: parent.right
         active: isLandscape
-        source: tabButtonTextOnly? "tabs/TitleAndTabBar.qml" : (tabButtonIconOnly? "tabs/TitleAndIconTabBar.qml" : "tabs/TitleAndIconTextTabBar.qml")
+        source: titleAndTabBarSource
         onLoaded: {
             if(item) {
                 item.currentIndex = navPane.currentIndex
