@@ -18,15 +18,14 @@ Popup {
     height: header? appWindow.height - header.height : appWindow.height
     transformOrigin: Popup.BottomRight
 
-
     ColumnLayout {
         anchors.right: parent.right
         anchors.left: parent.left
-        spacing: 10
+        spacing: 6
         RowLayout {
             Switch {
                 focusPolicy: Qt.NoFocus
-                topPadding: 8
+                topPadding: 6
                 leftPadding: 12
                 text: qsTr("Tabs Scrollable")
                 checked: !tabBarIsFixedSettings
@@ -34,16 +33,27 @@ Popup {
                     tabBarIsFixedSettings = !checked
                 }
             } // switch scrollable
-        } // row label
+        } // row switch scroll
         RowLayout {
-            GroupBox {
-                title: qsTr("Tab Button Design")
+            Switch {
+                focusPolicy: Qt.NoFocus
+                leftPadding: 12
+                text: qsTr("Tabs inside TitleBar")
+                checked: tabBarInsideTitleBar
+                onCheckedChanged: {
+                    tabBarInsideTitleBarSettings = checked
+                }
+            } // switch scrollable
+        } // row switch inside
+        RowLayout {
+            Frame {
                 ColumnLayout {
                     anchors.fill: parent
+                    spacing: 6
                     RadioButton {
                         id: radioText
                         focusPolicy: Qt.NoFocus
-                        text: qsTr("Text only")
+                        text: qsTr("Buttons Text only")
                         checked: tabButtonDesignSettings == 0
                         onCheckedChanged: {
                             tabButtonDesignSettings = 0
@@ -52,7 +62,7 @@ Popup {
                     RadioButton {
                         id: radioIcon
                         focusPolicy: Qt.NoFocus
-                        text: qsTr("Icon only")
+                        text: qsTr("Buttons Icon only")
                         checked: tabButtonDesignSettings == 1
                         onCheckedChanged: {
                             tabButtonDesignSettings = 1
@@ -61,7 +71,7 @@ Popup {
                     RadioButton {
                         id: radioTextAndIcon
                         focusPolicy: Qt.NoFocus
-                        text: qsTr("Icon and Text")
+                        text: qsTr("Buttons Icon and Text")
                         checked: tabButtonDesignSettings == 2
                         onCheckedChanged: {
                             tabButtonDesignSettings = 2
@@ -70,18 +80,7 @@ Popup {
                 }
             }
         } // radiobuttons design
-        RowLayout {
-            Switch {
-                focusPolicy: Qt.NoFocus
-                topPadding: 8
-                leftPadding: 12
-                text: qsTr("Tabs inside TitleBar")
-                checked: tabBarInsideTitleBar
-                onCheckedChanged: {
-                    tabBarInsideTitleBarSettings = checked
-                }
-            } // switch scrollable
-        } // row label
+
 
         RowLayout {
             ButtonFlat {
@@ -106,6 +105,8 @@ Popup {
         } // row button
 
     } // col layout
+
+
 
     function cleanup() {
         if(isOk) {
