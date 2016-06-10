@@ -90,6 +90,10 @@ ApplicationWindow {
 
     // TabBar properties
     property bool tabBarIsFixed: true
+    property int tabButtonDesign: 0
+    property bool tabButtonTextOnly: tabButtonDesign == 0
+    property bool tabButtonIconOnly: tabButtonDesign == 1
+    property bool tabButtonTextAndIcon: tabButtonDesign == 2
     property var tabButtonModel: [{"name": "Car", "icon": "car.png"},
                                             {"name": "Bus", "icon": "bus.png"},
                                             {"name": "Subway", "icon": "subway.png"},
@@ -102,7 +106,7 @@ ApplicationWindow {
         id: titleBar
         visible: !isLandscape
         active: !isLandscape
-        source: "tabs/TitleAndIconTextTabBar.qml" // "tabs/TitleAndTabBar.qml" // "tabs/TitleAndIconTabBar.qml"
+        source: tabButtonTextOnly? "tabs/TitleAndTabBar.qml" : (tabButtonIconOnly? "tabs/TitleAndIconTabBar.qml" : "tabs/TitleAndIconTextTabBar.qml")
         onLoaded: {
             if(item) {
                 item.currentIndex = navPane.currentIndex
@@ -118,7 +122,7 @@ ApplicationWindow {
         anchors.left: parent.left
         anchors.right: parent.right
         active: isLandscape
-        source: "tabs/TitleAndIconTextTabBar.qml" // "tabs/TitleAndTabBar.qml" // "tabs/TitleAndIconTabBar.qml"
+        source: tabButtonTextOnly? "tabs/TitleAndTabBar.qml" : (tabButtonIconOnly? "tabs/TitleAndIconTabBar.qml" : "tabs/TitleAndIconTextTabBar.qml")
         onLoaded: {
             if(item) {
                 item.currentIndex = navPane.currentIndex
@@ -387,6 +391,7 @@ ApplicationWindow {
     PopupSettings {
         id: popupSettings
         onAboutToHide: {
+            popupSettings.cleanup()
             resetFocus()
         }
     } // popupInfo

@@ -9,18 +9,24 @@ import "../common"
 Popup {
     id: popup
     property bool tabBarIsFixedSettings: tabBarIsFixed
-    x: (parent.width - width) / 2
-    y: (parent.height - height) / 2
-    implicitHeight: parent.height * .7
-    implicitWidth: parent.width * .7
+    property int tabButtonDesignSettings: tabButtonDesign
+    // default behavior for this Popup: OK
+    property bool isOk: true
+    x: parent.width - width
+    width: Math.min(appWindow.width, appWindow.height) / 4 * 3
+    height: header? appWindow.height - header.height : appWindow.height
+    transformOrigin: Popup.BottomRight
+
+
     ColumnLayout {
         anchors.right: parent.right
         anchors.left: parent.left
-        spacing: 20
+        spacing: 10
         RowLayout {
-            SwitchWithLeftLabel {
-                topPadding: 6
-                leftPadding: 8
+            Switch {
+                focusPolicy: Qt.NoFocus
+                topPadding: 8
+                leftPadding: 12
                 text: qsTr("Tabs Scrollable")
                 checked: !tabBarIsFixedSettings
                 onCheckedChanged: {
@@ -29,12 +35,46 @@ Popup {
             } // switch scrollable
         } // row label
         RowLayout {
+            GroupBox {
+                title: qsTr("Tab Button Design")
+                ColumnLayout {
+                    anchors.fill: parent
+                    RadioButton {
+                        id: radioText
+                        text: qsTr("Text only")
+                        checked: tabButtonDesignSettings == 0
+                        onCheckedChanged: {
+                            tabButtonDesignSettings = 0
+                        }
+                    }
+                    RadioButton {
+                        id: radioIcon
+                        text: qsTr("Icon only")
+                        checked: tabButtonDesignSettings == 1
+                        onCheckedChanged: {
+                            tabButtonDesignSettings = 1
+                        }
+                    }
+                    RadioButton {
+                        id: radioTextAndIcon
+                        text: qsTr("Icon and Text")
+                        checked: tabButtonDesignSettings == 2
+                        onCheckedChanged: {
+                            tabButtonDesignSettings = 2
+                        }
+                    }
+                }
+            }
+        }
+
+        RowLayout {
             ButtonFlat {
                 id: cancelButton
                 text: qsTr("Cancel")
                 textColor: popupTextColor
                 opacity: opacityBodySecondary
                 onClicked: {
+                    isOk = false
                     popup.close()
                 }
             } // cancelButton
@@ -43,11 +83,19 @@ Popup {
                 text: qsTr("OK")
                 textColor: accentColor
                 onClicked: {
-                    tabBarIsFixed = tabBarIsFixedSettings
+                    isOk = true
                     popup.close()
                 }
             } // okButton
         } // row button
+
     } // col layout
+
+    function cleanup() {
+        if(isOk) {
+            tabBarIsFixed = tabBarIsFixedSettings
+            tabButtonDesign = tabButtonDesignSettings
+        }
+    }
 
 } // popup
