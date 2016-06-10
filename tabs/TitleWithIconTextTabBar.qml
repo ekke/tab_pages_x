@@ -83,6 +83,9 @@ ToolBar {
 
         TabBar {
             id: myTabBar
+            // we cannot customize the selectionBar, it's always accentColor
+            // so we ov erwrite the accent
+            Material.accent: textOnPrimary
             anchors.left: parent.left
             anchors.right: parent.right
             currentIndex: 0
