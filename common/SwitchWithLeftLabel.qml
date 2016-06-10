@@ -13,6 +13,7 @@ Row {
     }
     Switch {
         id: theSwitch
+        focusPolicy: Qt.NoFocus
         anchors.verticalCenter: parent.verticalCenter
     }
 }

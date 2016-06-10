@@ -16,6 +16,7 @@ lupdate_only {
     SOURCES +=  main.qml \
     common/*.qml \
     pages/*.qml \
+    popups/*.qml \
     tabs/*.qml
 }
 

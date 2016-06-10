@@ -1,6 +1,7 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
+import "../common"
 
 Popup {
     id: popup
@@ -31,7 +32,7 @@ Popup {
                 text: ""
                 textColor: accentColor
                 onClicked: {
-                    popupInfo.close()
+                    popup.close()
                 }
             } // okButton
         } // row button

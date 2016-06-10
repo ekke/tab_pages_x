@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.0
 import QtGraphicalEffects 1.0
 import "common"
 import "pages"
+import "popups"
 import "tabs"
 
 // This app demonstrates HowTo use Qt 5.7 new Qt Quick Controls 2, High DPI and more
@@ -136,8 +137,7 @@ ApplicationWindow {
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
         onClicked: {
-            showInfo("TODO: Settings TabBar:\nfix vs scrolling\ntop vs bottom\ntext, icon, text+icon")
-            tabBarIsFixed = !tabBarIsFixed
+            showSettings()
         }
     } // FAB
 
@@ -367,6 +367,10 @@ ApplicationWindow {
         popupInfo.buttonText = qsTr("OK")
         popupInfo.open()
     }
+    function showSettings() {
+        popupSettings.tabBarIsFixedSettings = tabBarIsFixed
+        popupSettings.open()
+    }
 
     // Unfortunately no SIGNAL if end or beginning reached from SWIPE GESTURE
     // so at the moment user gets no visual feedback
@@ -379,7 +383,12 @@ ApplicationWindow {
         }
     } // popupInfo
 
-    // TODO PopupSettings
-
+    // PopupSettings
+    PopupSettings {
+        id: popupSettings
+        onAboutToHide: {
+            resetFocus()
+        }
+    } // popupInfo
 
 } // app window
