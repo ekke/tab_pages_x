@@ -13,100 +13,117 @@ Popup {
     property bool tabBarInsideTitleBarSettings: tabBarInsideTitleBar
     // default behavior for this Popup: OK Button Clicked
     property bool isOk: true
-    x: parent.width - width
-    width: Math.min(appWindow.width, appWindow.height) / 4 * 3
-    height: header? appWindow.height - header.height : appWindow.height
-    transformOrigin: Popup.BottomRight
+    x: parent.width - width - 12
+    y: parent.height - height - 12
+    width: Math.min(appWindow.width, appWindow.height) / 3 * 2
+    height: Math.min(appWindow.height, theContent.height +10)
+    // Attention: clip should be used carefully,
+    // but using a Flickable inside a Popup
+    // you must set it to true
+    // otherwise content will appear outside while scrolling
+    clip: true
 
-    ColumnLayout {
-        anchors.right: parent.right
-        anchors.left: parent.left
-        spacing: 6
-        RowLayout {
-            Switch {
-                focusPolicy: Qt.NoFocus
-                topPadding: 6
-                leftPadding: 12
-                text: qsTr("Tabs Scrollable")
-                checked: !tabBarIsFixedSettings
-                onCheckedChanged: {
-                    tabBarIsFixedSettings = !checked
-                }
-            } // switch scrollable
-        } // row switch scroll
-        RowLayout {
-            Switch {
-                focusPolicy: Qt.NoFocus
-                leftPadding: 12
-                text: qsTr("Tabs inside TitleBar")
-                checked: tabBarInsideTitleBar
-                onCheckedChanged: {
-                    tabBarInsideTitleBarSettings = checked
-                }
-            } // switch scrollable
-        } // row switch inside
-        RowLayout {
-            Frame {
-                ColumnLayout {
-                    anchors.fill: parent
-                    spacing: 6
-                    RadioButton {
-                        id: radioText
-                        focusPolicy: Qt.NoFocus
-                        text: qsTr("Buttons Text only")
-                        checked: tabButtonDesignSettings == 0
-                        onCheckedChanged: {
-                            tabButtonDesignSettings = 0
-                        }
-                    }
-                    RadioButton {
-                        id: radioIcon
-                        focusPolicy: Qt.NoFocus
-                        text: qsTr("Buttons Icon only")
-                        checked: tabButtonDesignSettings == 1
-                        onCheckedChanged: {
-                            tabButtonDesignSettings = 1
-                        }
-                    }
-                    RadioButton {
-                        id: radioTextAndIcon
-                        focusPolicy: Qt.NoFocus
-                        text: qsTr("Buttons Icon and Text")
-                        checked: tabButtonDesignSettings == 2
-                        onCheckedChanged: {
-                            tabButtonDesignSettings = 2
-                        }
-                    }
-                }
+    Flickable {
+        contentHeight: popup.height
+        anchors.fill: parent
+
+
+        ColumnLayout {
+            id: theContent
+            anchors.right: parent.right
+            anchors.left: parent.left
+            spacing: 6
+            LabelSubheading {
+                text: qsTr("Settings TabBar")
+                color: accentColor
             }
-        } // radiobuttons design
-
-
-        RowLayout {
-            ButtonFlat {
-                id: cancelButton
-                text: qsTr("Cancel")
-                textColor: popupTextColor
-                opacity: opacityBodySecondary
-                onClicked: {
-                    isOk = false
-                    popup.close()
+            RowLayout {
+                Switch {
+                    focusPolicy: Qt.NoFocus
+                    topPadding: 6
+                    leftPadding: 12
+                    text: qsTr("Tabs Scrollable")
+                    checked: !tabBarIsFixedSettings
+                    onCheckedChanged: {
+                        tabBarIsFixedSettings = !checked
+                    }
+                } // switch scrollable
+            } // row switch scroll
+            RowLayout {
+                Switch {
+                    focusPolicy: Qt.NoFocus
+                    leftPadding: 12
+                    text: qsTr("Tabs inside TitleBar")
+                    checked: tabBarInsideTitleBar
+                    onCheckedChanged: {
+                        tabBarInsideTitleBarSettings = checked
+                    }
+                } // switch scrollable
+            } // row switch inside
+            RowLayout {
+                Frame {
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 6
+                        RadioButton {
+                            id: radioText
+                            focusPolicy: Qt.NoFocus
+                            text: qsTr("Buttons Text only")
+                            checked: tabButtonDesignSettings == 0
+                            onCheckedChanged: {
+                                tabButtonDesignSettings = 0
+                            }
+                        }
+                        RadioButton {
+                            id: radioIcon
+                            focusPolicy: Qt.NoFocus
+                            text: qsTr("Buttons Icon only")
+                            checked: tabButtonDesignSettings == 1
+                            onCheckedChanged: {
+                                tabButtonDesignSettings = 1
+                            }
+                        }
+                        RadioButton {
+                            id: radioTextAndIcon
+                            focusPolicy: Qt.NoFocus
+                            text: qsTr("Buttons Icon and Text")
+                            checked: tabButtonDesignSettings == 2
+                            onCheckedChanged: {
+                                tabButtonDesignSettings = 2
+                            }
+                        }
+                    }
                 }
-            } // cancelButton
-            ButtonFlat {
-                id: okButton
-                text: qsTr("OK")
-                textColor: accentColor
-                onClicked: {
-                    isOk = true
-                    popup.close()
-                }
-            } // okButton
-        } // row button
-
-    } // col layout
+            } // radiobuttons design
 
 
+            RowLayout {
+                ButtonFlat {
+                    id: cancelButton
+                    text: qsTr("Cancel")
+                    textColor: popupTextColor
+                    opacity: opacityBodySecondary
+                    onClicked: {
+                        isOk = false
+                        popup.close()
+                    }
+                } // cancelButton
+                ButtonFlat {
+                    id: okButton
+                    text: qsTr("OK")
+                    textColor: accentColor
+                    onClicked: {
+                        isOk = true
+                        popup.close()
+                    }
+                } // okButton
+            } // row button
+
+        } // col layout
+
+        ScrollIndicator.vertical: ScrollIndicator { }
+
+    } // flickable
 
     function cleanup() {
         if(isOk) {
