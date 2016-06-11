@@ -48,10 +48,10 @@ This sample app uses Material Design with UI Controls provided by Qt 5.7+ and wa
 A detailed description you'll find at my blog: http://bit.ly/qt-tab-pages-x
 
 ### Screenshot Android
-![alt tag](https://appbus.files.wordpress.com/2016/06/android_tabs_01.png  "Screenshot Android Fix TabBar (Top)")
+![alt tag](https://appbus.files.wordpress.com/2016/06/android_tab_01.png  "Screenshot Android TabBar")
 
 ### Screenshot iOS
-TBD
+![alt tag](https://appbus.files.wordpress.com/2016/06/io2_tab_02.png  "Screenshot iOS TabBar")
 
 more screenshots here:
 http://bit.ly/qt-tab-pages-x
