@@ -459,6 +459,6 @@ ApplicationWindow {
             popupSettings.update()
             resetFocus()
         }
-    } // popupInfo
+    } // popupSettings
 
 } // app window
