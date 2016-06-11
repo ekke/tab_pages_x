@@ -176,6 +176,10 @@ ApplicationWindow {
         }
     }
     // in LANDSCAPE header is null and we have a floating TitleBar
+    // hint: TitleBar shadow not visible in Landscape
+    // reason: TabBar must be defined inside ToolBar
+    // but they're defined in column layout - haven't redesigned for this example
+    // only wanted to demonstrate HowTo use fix and floating Titles
     Loader {
         id: titleBarFloating
         visible: isLandscape
