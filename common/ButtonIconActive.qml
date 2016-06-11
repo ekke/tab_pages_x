@@ -7,7 +7,7 @@ import QtGraphicalEffects 1.0
 
 Button {
     id: button
-    // image should be 24x24
+    // default Image Size 24x24
     property alias imageName: theIcon.imageName
     property alias imageSize: theIcon.imageSize
     focusPolicy: Qt.NoFocus
@@ -18,8 +18,8 @@ Button {
     background:
         Rectangle {
         id: buttonBackground
-        implicitHeight: 48
-        Layout.minimumWidth: 88
+        implicitHeight: imageSize + 24
+        implicitWidth: imageSize + 24
         color: button.pressed ? accentColor : "transparent"
         opacity: button.pressed ? 0.12 : 1.0
     } // background
