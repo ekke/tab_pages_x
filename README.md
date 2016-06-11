@@ -1,5 +1,3 @@
-# W O R K   I N   P R O G R E S S  - wait for tweet @ekkescorner before cloning
-
 # tab_pages_x
 Sample APP - Qt 5.7+ - Android iOS
 
