@@ -9,6 +9,7 @@ import "../common"
 ColumnLayout {
     property alias text: myTitleBar.text
     property alias currentIndex: myTabBar.currentIndex
+    spacing: 6
     SwipeTextTitle {
         id: myTitleBar
         backToolButtonVisible: false
@@ -16,14 +17,12 @@ ColumnLayout {
     }
     TabBar {
         id: myTabBar
-        anchors.top: myTitleBar.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         currentIndex: 0
         onCurrentIndexChanged: {
             navPane.currentIndex = currentIndex
         }
-
         Repeater {
             model: tabButtonModel
             TabButton {

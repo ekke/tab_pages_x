@@ -19,7 +19,7 @@ TabButton {
             // anchors.centerIn: parent
             anchors.top: parent.top
             anchors.horizontalCenter: parent.horizontalCenter
-            y: 12
+            // y: 12
             horizontalAlignment: Image.AlignHCenter
             source: "qrc:/images/"+theIconFolder+"/"+modelData.icon
             opacity: colorOverlay.visible? 1.0 : theOpacity

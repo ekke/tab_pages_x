@@ -9,105 +9,108 @@ ToolBar {
     property alias text: titleLabel.text
     property bool backToolButtonVisible: false
     property alias currentIndex: myTabBar.currentIndex
-    bottomPadding: isLandscape? 25 : 24
-    ColumnLayout {
-        anchors.fill: parent
-
-        RowLayout {
-            focus: false
-            spacing: 6
-            anchors.fill: parent
-            ToolButton {
-                enabled: backToolButtonVisible
-                focusPolicy: Qt.NoFocus
-                Image {
-                    id: backImageImage
-                    visible: backToolButtonVisible
-                    anchors.centerIn: parent
-                    source: "qrc:/images/"+iconOnPrimaryFolder+"/arrow_back.png"
-                }
-                onClicked: {
-                    navPane.onePageBack()
-                }
+    // explains how to calculate the height:
+    property int defaultToolBar: 48
+    property int iconPlusTabBar: 72
+    // without this selected tab not marked
+    property int landscapeExtra: isLandscape? 1 : 0
+    height: defaultToolBar + iconPlusTabBar + landscapeExtra
+    RowLayout {
+        id: topRow
+        focus: false
+        spacing: 6
+        // anchors.fill: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
+        ToolButton {
+            enabled: backToolButtonVisible
+            focusPolicy: Qt.NoFocus
+            Image {
+                id: backImageImage
+                visible: backToolButtonVisible
+                anchors.centerIn: parent
+                source: "qrc:/images/"+iconOnPrimaryFolder+"/arrow_back.png"
             }
-            LabelTitle {
-                id: titleLabel
-                text: "ekke"
-                // leftPadding: 16
-                elide: Label.ElideRight
-                horizontalAlignment: Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
-                color: textOnPrimary
+            onClicked: {
+                navPane.onePageBack()
             }
-            ToolButton {
-                focusPolicy: Qt.NoFocus
-                Image {
-                    id: buttonImage
-                    anchors.centerIn: parent
-                    source: "qrc:/images/"+iconOnPrimaryFolder+"/more_vert.png"
-                }
-                onClicked: {
-                    optionsMenu.open()
-                }
-                Menu {
-                    id: optionsMenu
-                    x: parent.width - width
-                    transformOrigin: Menu.TopRight
-                    MenuItem {
-                        text: isDarkTheme? qsTr("Light Theme") : qsTr("Dark Theme")
-                        onTriggered: {
-                            themePalette = myApp.swapThemePalette()
-                        }
-                    }
-                    MenuItem {
-                        text: qsTr("Select Primary Color")
-                        onTriggered: {
-                            popup.selectAccentColor = false
-                            popup.open()
-                        }
-                    }
-                    MenuItem {
-                        text: qsTr("Select Accent Color")
-                        onTriggered: {
-                            popup.selectAccentColor = true
-                            popup.open()
-                        }
-                    }
-                    onAboutToHide: {
-                        appWindow.resetFocus()
-                    }
-                } // end optionsMenu
-
-            } // end ToolButton
-        } // end RowLayout
-
-        TabBar {
-            id: myTabBar
-            // we cannot customize the selectionBar, it's always accentColor
-            // so we ov erwrite the accent
-            Material.accent: textOnPrimary
-            anchors.left: parent.left
-            anchors.right: parent.right
-            currentIndex: 0
-            onCurrentIndexChanged: {
-                navPane.currentIndex = currentIndex
+        }
+        LabelTitle {
+            id: titleLabel
+            text: "ekke"
+            // leftPadding: 16
+            elide: Label.ElideRight
+            horizontalAlignment: Qt.AlignHCenter
+            verticalAlignment: Qt.AlignVCenter
+            color: textOnPrimary
+        }
+        ToolButton {
+            focusPolicy: Qt.NoFocus
+            Image {
+                id: buttonImage
+                anchors.centerIn: parent
+                source: "qrc:/images/"+iconOnPrimaryFolder+"/more_vert.png"
             }
-            background: Rectangle {
-                    color: primaryColor
+            onClicked: {
+                optionsMenu.open()
+            }
+            Menu {
+                id: optionsMenu
+                x: parent.width - width
+                transformOrigin: Menu.TopRight
+                MenuItem {
+                    text: isDarkTheme? qsTr("Light Theme") : qsTr("Dark Theme")
+                    onTriggered: {
+                        themePalette = myApp.swapThemePalette()
+                    }
                 }
-            Repeater {
-                model: tabButtonModel
-                TabButtonTextAndIcon {
-                    theButtonColor: textOnPrimary
-                    theOpacity: index == navPane.currentIndex ? toolBarActiveOpacity : toolBarInactiveOpacity
-                    theIconFolder: iconOnPrimaryFolder
-                    hasOverlay: false
+                MenuItem {
+                    text: qsTr("Select Primary Color")
+                    onTriggered: {
+                        popup.selectAccentColor = false
+                        popup.open()
+                    }
                 }
-            } // repeater
+                MenuItem {
+                    text: qsTr("Select Accent Color")
+                    onTriggered: {
+                        popup.selectAccentColor = true
+                        popup.open()
+                    }
+                }
+                onAboutToHide: {
+                    appWindow.resetFocus()
+                }
+            } // end optionsMenu
 
-        } // myTabBar
+        } // end ToolButton
+    } // end RowLayout
+    TabBar {
+        id: myTabBar
+        // we cannot customize the selectionBar, it's always accentColor
+        // so we ov erwrite the accent
+        Material.accent: textOnPrimary
+        anchors.top: topRow.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        currentIndex: 0
+        onCurrentIndexChanged: {
+            navPane.currentIndex = currentIndex
+        }
+        background: Rectangle {
+            color: primaryColor
+        }
+        Repeater {
+            model: tabButtonModel
+            TabButtonTextAndIcon {
+                theButtonColor: textOnPrimary
+                theOpacity: index == navPane.currentIndex ? toolBarActiveOpacity : toolBarInactiveOpacity
+                theIconFolder: iconOnPrimaryFolder
+                hasOverlay: false
+            }
+        } // repeater
 
-    } // col layout
+    } // myTabBar
 
 }// end ToolBar
 
