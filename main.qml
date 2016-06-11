@@ -456,7 +456,7 @@ ApplicationWindow {
     PopupSettings {
         id: popupSettings
         onAboutToHide: {
-            popupSettings.cleanup()
+            popupSettings.update()
             resetFocus()
         }
     } // popupInfo

@@ -125,7 +125,7 @@ Popup {
 
     } // flickable
 
-    function cleanup() {
+    function update() {
         if(isOk) {
             tabBarIsFixed = tabBarIsFixedSettings
             tabButtonDesign = tabButtonDesignSettings
