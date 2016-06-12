@@ -11,6 +11,7 @@ TabButton {
     property string theIconFolder: iconFolder
     property alias hasOverlay: colorOverlay.visible
     property real theOpacity: 1.0
+    focusPolicy: Qt.NoFocus
     height: 72
     contentItem:
         Item {

@@ -103,6 +103,7 @@ ToolBar {
         Repeater {
             model: tabButtonModel
             TabButton {
+                focusPolicy: Qt.NoFocus
                 height: 48
                 contentItem:
                     Item {

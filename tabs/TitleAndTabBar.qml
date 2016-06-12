@@ -26,6 +26,7 @@ ColumnLayout {
         Repeater {
             model: tabButtonModel
             TabButton {
+                focusPolicy: Qt.NoFocus
                 text: modelData.name
                 width: tabBarIsFixed? myTabBar.width / tabButtonModel.length  : Math.max(112, myTabBar.width / tabButtonModel.length)
             }
