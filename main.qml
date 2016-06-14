@@ -215,6 +215,7 @@ ApplicationWindow {
         focus: true
         // anchors.fill: parent
         anchors.top: isLandscape? titleBarFloating.bottom : parent.top
+        anchors.topMargin: isLandscape? 6 : 0
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
