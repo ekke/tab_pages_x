@@ -13,20 +13,21 @@ Popup {
     property bool tabBarInsideTitleBarSettings: tabBarInsideTitleBar
     // default behavior for this Popup: OK Button Clicked
     property bool isOk: true
+    Material.elevation: 8
     x: parent.width - width - 12
     y: parent.height - height - 12
     width: Math.min(appWindow.width, appWindow.height) / 3 * 2
     height: Math.min(appWindow.height, theContent.height +10)
-    // Attention: clip should be used carefully,
-    // but using a Flickable inside a Popup
-    // you must set it to true
-    // otherwise content will appear outside while scrolling
-    clip: true
 
     Flickable {
         contentHeight: popup.height
         anchors.fill: parent
-
+        // Attention: clip should be used carefully,
+        // but using a ListView inside a Popup
+        // you must set it to true
+        // otherwise content will appear outside while scrolling
+        // don't clip at Paopup: will cut the elevation shadow
+        clip: true
 
         ColumnLayout {
             id: theContent

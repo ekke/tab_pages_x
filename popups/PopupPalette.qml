@@ -9,16 +9,12 @@ import "../common"
 Popup {
     id: popup
     property bool selectAccentColor: false
+    Material.elevation: 8
 
     x: parent.width - width
     width: Math.min(appWindow.width, appWindow.height) / 3 * 2
     height: header? appWindow.height - header.height : appWindow.height
     transformOrigin: Popup.TopRight
-    // Attention: clip should be used carefully,
-    // but using a ListView inside a Popup
-    // you must set it to true
-    // otherwise content will appear outside while scrolling
-    clip: true
 
     // Hint: as of Qt 5.7 Beta because of bug in dark theme,
     // background is too dark
@@ -26,6 +22,12 @@ Popup {
 
     ListView {
         id: listView
+        // Attention: clip should be used carefully,
+        // but using a ListView inside a Popup
+        // you must set it to true
+        // otherwise content will appear outside while scrolling
+        // don't clip at Paopup: will cut the elevation shadow
+        clip: true
         currentIndex: -1
         anchors.fill: parent
         implicitHeight: popup.height
