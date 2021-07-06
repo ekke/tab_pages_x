@@ -32,17 +32,17 @@ Bluetooth keyboard attached or BlackBerry PRIV?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageFive.qml" line="77"/>
+        <location filename="../pages/PageFive.qml" line="80"/>
         <source>Message from Page Five [4]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageFive.qml" line="81"/>
+        <location filename="../pages/PageFive.qml" line="84"/>
         <source>Init done from Five [4]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageFive.qml" line="85"/>
+        <location filename="../pages/PageFive.qml" line="88"/>
         <source>Cleanup done from Five [4]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -78,17 +78,17 @@ Bluetooth keyboard attached or BlackBerry PRIV?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageFour.qml" line="70"/>
+        <location filename="../pages/PageFour.qml" line="66"/>
         <source>Message from Page Four [3]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageFour.qml" line="74"/>
+        <location filename="../pages/PageFour.qml" line="70"/>
         <source>Init done from Four [3]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageFour.qml" line="78"/>
+        <location filename="../pages/PageFour.qml" line="74"/>
         <source>Cleanup done from Four [3]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -116,6 +116,8 @@ Tap on &apos;Settings&apos; Button to configure TabBar
 
 From &apos;Option Menu&apos; (three dots) placed top right in ToolBar you can switch Theme and change primary / accent colors
 
+In Landscape mode Title and Tabs are scrollable.
+
 Bluetooth keyboard attached or BlackBerry PRIV?
 * Type &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos; to go to the specific Tab
 * &apos;Space&apos; or &apos;n&apos; for the next Tab
@@ -124,17 +126,27 @@ Bluetooth keyboard attached or BlackBerry PRIV?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageOne.qml" line="71"/>
+        <location filename="../pages/PageOne.qml" line="51"/>
+        <source>Take a look at the Bus schedule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/PageOne.qml" line="55"/>
+        <source>Tap on Bus Icon: after a short delay you&apos;ll see a ToolTip while pressing down.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pages/PageOne.qml" line="69"/>
         <source>Message from Page One [0]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageOne.qml" line="75"/>
+        <location filename="../pages/PageOne.qml" line="73"/>
         <source>Init done from One [0]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageOne.qml" line="79"/>
+        <location filename="../pages/PageOne.qml" line="77"/>
         <source>Cleanup done from One [0]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -170,17 +182,17 @@ Bluetooth keyboard attached or BlackBerry PRIV?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageThree.qml" line="70"/>
+        <location filename="../pages/PageThree.qml" line="66"/>
         <source>Message from Page Three [2]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageThree.qml" line="74"/>
+        <location filename="../pages/PageThree.qml" line="70"/>
         <source>Init done from Three [2]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageThree.qml" line="78"/>
+        <location filename="../pages/PageThree.qml" line="74"/>
         <source>Cleanup done from Three [2]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -216,17 +228,17 @@ Bluetooth keyboard attached or BlackBerry PRIV?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageTwo.qml" line="72"/>
+        <location filename="../pages/PageTwo.qml" line="73"/>
         <source>Message from Page Two [1]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageTwo.qml" line="76"/>
+        <location filename="../pages/PageTwo.qml" line="77"/>
         <source>Init done from Two [1]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pages/PageTwo.qml" line="80"/>
+        <location filename="../pages/PageTwo.qml" line="81"/>
         <source>Cleanup done from Two [1]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -234,98 +246,141 @@ Bluetooth keyboard attached or BlackBerry PRIV?
 <context>
     <name>PopupPalette</name>
     <message>
-        <location filename="../common/PopupPalette.qml" line="71"/>
+        <location filename="../popups/PopupPalette.qml" line="74"/>
         <source>Material Red</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="72"/>
+        <location filename="../popups/PopupPalette.qml" line="75"/>
         <source>Material Pink</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="73"/>
+        <location filename="../popups/PopupPalette.qml" line="76"/>
         <source>Material Purple</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="74"/>
+        <location filename="../popups/PopupPalette.qml" line="77"/>
         <source>Material DeepPurple</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="75"/>
+        <location filename="../popups/PopupPalette.qml" line="78"/>
         <source>Material Indigo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="76"/>
+        <location filename="../popups/PopupPalette.qml" line="79"/>
         <source>Material Blue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="77"/>
+        <location filename="../popups/PopupPalette.qml" line="80"/>
         <source>Material LightBlue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="78"/>
+        <location filename="../popups/PopupPalette.qml" line="81"/>
         <source>Material Cyan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="79"/>
+        <location filename="../popups/PopupPalette.qml" line="82"/>
         <source>Material Teal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="80"/>
+        <location filename="../popups/PopupPalette.qml" line="83"/>
         <source>Material Green</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="81"/>
+        <location filename="../popups/PopupPalette.qml" line="84"/>
         <source>Material LightGreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="82"/>
+        <location filename="../popups/PopupPalette.qml" line="85"/>
         <source>Material Lime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="83"/>
+        <location filename="../popups/PopupPalette.qml" line="86"/>
         <source>Material Yellow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="84"/>
+        <location filename="../popups/PopupPalette.qml" line="87"/>
         <source>Material Amber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="85"/>
+        <location filename="../popups/PopupPalette.qml" line="88"/>
         <source>Material Orange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="86"/>
+        <location filename="../popups/PopupPalette.qml" line="89"/>
         <source>Material DeepOrange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="87"/>
+        <location filename="../popups/PopupPalette.qml" line="90"/>
         <source>Material Brown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="88"/>
+        <location filename="../popups/PopupPalette.qml" line="91"/>
         <source>Material Grey</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../common/PopupPalette.qml" line="89"/>
+        <location filename="../popups/PopupPalette.qml" line="92"/>
         <source>Material BlueGrey</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PopupSettings</name>
+    <message>
+        <location filename="../popups/PopupSettings.qml" line="38"/>
+        <source>Settings TabBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popups/PopupSettings.qml" line="46"/>
+        <source>Tabs Scrollable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popups/PopupSettings.qml" line="57"/>
+        <source>Tabs inside TitleBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popups/PopupSettings.qml" line="72"/>
+        <source>Buttons Text only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popups/PopupSettings.qml" line="81"/>
+        <source>Buttons Icon only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popups/PopupSettings.qml" line="90"/>
+        <source>Buttons Icon and Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popups/PopupSettings.qml" line="104"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popups/PopupSettings.qml" line="114"/>
+        <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -399,38 +454,109 @@ Bluetooth keyboard attached or BlackBerry PRIV?
     </message>
 </context>
 <context>
+    <name>TitleWithIconTabBar</name>
+    <message>
+        <location filename="../tabs/TitleWithIconTabBar.qml" line="62"/>
+        <source>Light Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithIconTabBar.qml" line="62"/>
+        <source>Dark Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithIconTabBar.qml" line="68"/>
+        <source>Select Primary Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithIconTabBar.qml" line="75"/>
+        <source>Select Accent Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TitleWithIconTextTabBar</name>
+    <message>
+        <location filename="../tabs/TitleWithIconTextTabBar.qml" line="62"/>
+        <source>Light Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithIconTextTabBar.qml" line="62"/>
+        <source>Dark Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithIconTextTabBar.qml" line="68"/>
+        <source>Select Primary Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithIconTextTabBar.qml" line="75"/>
+        <source>Select Accent Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TitleWithTabBar</name>
+    <message>
+        <location filename="../tabs/TitleWithTabBar.qml" line="61"/>
+        <source>Light Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithTabBar.qml" line="61"/>
+        <source>Dark Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithTabBar.qml" line="67"/>
+        <source>Select Primary Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs/TitleWithTabBar.qml" line="74"/>
+        <source>Select Accent Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
-        <location filename="../main.qml" line="89"/>
+        <location filename="../main.qml" line="174"/>
+        <location filename="../main.qml" line="194"/>
         <source>HowTo move from A to B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.qml" line="333"/>
+        <location filename="../main.qml" line="420"/>
         <source>No more Tabs
 Leftmost Tab reached</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.qml" line="334"/>
-        <location filename="../main.qml" line="340"/>
+        <location filename="../main.qml" line="421"/>
+        <location filename="../main.qml" line="427"/>
+        <location filename="../main.qml" line="437"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.qml" line="339"/>
+        <location filename="../main.qml" line="426"/>
         <source>No more Tabs
 Rightmost Tab reached</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.qml" line="344"/>
+        <location filename="../main.qml" line="431"/>
         <source>Page %1 not valid.
 Please tap &apos;Done&apos; Button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.qml" line="345"/>
+        <location filename="../main.qml" line="432"/>
         <source>So Long, and Thx For All The Fish</source>
         <translation type="unfinished"></translation>
     </message>
